@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "db": {
+      "type": "object",
+      "properties": {
+        "database": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": ["database", "host"]
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "measurement": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {
+              "type": ["number", "string"]
+            }
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": ["measurement", "fields"]
+    },
+    "math": {
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
