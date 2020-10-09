@@ -20,3 +20,5 @@ dist/
 # Build mash
 *-debug.log
 *-error.log
+
+coverage/

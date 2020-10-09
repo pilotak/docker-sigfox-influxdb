@@ -9,7 +9,7 @@
     "build": "tsc",
     "start": "node .",
     "lint": "eslint ./src",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "ajv": "^6.12.5",

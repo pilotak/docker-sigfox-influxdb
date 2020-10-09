@@ -1,7 +1,8 @@
 # Sigfox to InfluxDB convertor
 
-[![Docker Build](https://github.com/pilotak/docker-sigfox-influxdb/workflows/docker%20build/badge.svg)](https://github.com/pilotak/docker-sigfox-influxdb/actions)
+[![Docker Build](https://github.com/pilotak/docker-sigfox-influxdb/workflows/build/badge.svg)](https://github.com/pilotak/docker-sigfox-influxdb/actions)
 ![Docker Image Size](https://img.shields.io/docker/image-size/pilotak/sigfox-influxdb?color=orange)
+[![Coverage Status](https://coveralls.io/repos/github/pilotak/docker-sigfox-influxdb/badge.svg?branch=master)](https://coveralls.io/github/pilotak/docker-sigfox-influxdb?branch=master)
 
 Simple and effective Sigfox callback to InfluxDB convertor - all set from Sigfox backend.
 There isn't an easy way of saving data from Sigfox callback mechanism to InfluxDB directly, that's why this API server was created. It's a universal API server where no credentials are required for setting up which allows you to save the data to seperate DBs or measurement tables without restarting the whole thing.
