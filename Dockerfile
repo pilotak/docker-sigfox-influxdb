@@ -7,7 +7,7 @@ FROM node:14-alpine AS builder
 WORKDIR /app
 
 # NPM files
-COPY package*.json tsconfig*.json .eslintrc .prettierrc jest.config.json ./
+COPY package*.json tsconfig*.json ./
 
 # Install timezone and dependencies
 RUN apk add --no-cache tzdata \
@@ -16,10 +16,8 @@ RUN apk add --no-cache tzdata \
 # Copy source
 COPY src src
 
-# Lint & Test & Build
-RUN npm run lint \
-	&& npm run test \
-	&& npm run build
+# Build
+RUN npm run build
 ###############################################################################
 # Step 2 : Run image
 
