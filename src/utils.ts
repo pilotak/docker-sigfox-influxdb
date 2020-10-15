@@ -13,7 +13,7 @@ export const parseData = (data: InputData): number | InputData => {
     return 405;
   }
 
-  // console.log('Incomming data:', data);
+  console.log('Incomming data:', data);
 
   if (data.math) {
     const newFields: { [key: string]: number | string } = {};
@@ -34,7 +34,7 @@ export const parseData = (data: InputData): number | InputData => {
     data.data.fields = Object.assign(data.data.fields, newFields);
   }
 
-  // console.log('Outgoing data:', data);
+  console.log('Outgoing data:', data);
   return data;
 };
 
