@@ -1,6 +1,6 @@
 import * as request from 'supertest';
 import app from '../server';
-// import * as crypto from 'crypto';
+import * as crypto from 'crypto';
 
 describe('Invalid requests', () => {
   it('GET', async () => {
@@ -35,10 +35,19 @@ describe('Invalid requests', () => {
     expect(result.status).toBe(405);
   });
 
-  /*it('Data flood', async () => {
+  it('Too much data', async () => {
+    let errorCode: string;
     const data = crypto.randomBytes(1e6).toString('base64').slice(0, 1e6);
-    const result = await request(app).post('/uplink').set('Content-Type', 'application/json').send(data);
 
-    expect(result.status).toBe(405);
-  });*/
+    await request(app)
+      .post('/uplink')
+      .set('Content-Type', 'application/json')
+      .send(data)
+      .catch((res) => {
+        errorCode = res.code;
+      })
+      .then(() => {
+        expect(errorCode).toBe('ECONNRESET');
+      });
+  });
 });
