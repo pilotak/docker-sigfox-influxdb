@@ -1,6 +1,5 @@
 import { createServer } from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
-import { parse as parseUrl } from 'url';
 import { parseData, saveData } from './utils';
 
 const port = parseInt(process.env.PORT || '8080', 10);
@@ -17,14 +16,14 @@ const app = createServer((req: IncomingMessage, res: ServerResponse) => {
       res.end();
       throw new Error('URL undefined');
     }
-
-    const url = parseUrl(req.url, true);
+    console.log(req.url, req.headers.host);
+    const url = new URL(req.url, `http://${req.headers.host}`);
 
     if (url.pathname !== '/uplink' && url.pathname !== '/test') {
       throw new Error('Unsupported path');
     }
 
-    if (Object.keys(url.query).length > 0) {
+    if (url.searchParams.toString().length > 0) {
       throw new Error('No query parameters are allowed');
     }
 
@@ -39,7 +38,7 @@ const app = createServer((req: IncomingMessage, res: ServerResponse) => {
 
       // flood attack or faulty client
       if (data.length >= 1e6) {
-        req.connection.destroy();
+        req.destroy();
       }
     });
 

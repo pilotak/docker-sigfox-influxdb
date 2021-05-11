@@ -4,12 +4,7 @@
     "node": true
   },
   "parser": "@typescript-eslint/parser",
-  "extends": [
-    "prettier/@typescript-eslint",
-    "prettier",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["prettier", "plugin:prettier/recommended", "plugin:@typescript-eslint/recommended"],
   "parserOptions": {
     "ecmaVersion": 11,
     "sourceType": "module"

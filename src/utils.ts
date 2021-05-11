@@ -1,4 +1,4 @@
-import * as AJV from 'ajv';
+import AJV from 'ajv';
 import * as Influx from 'influx';
 import { evaluate } from 'mathjs';
 
