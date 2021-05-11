@@ -1,6 +1,6 @@
 {
   "name": "docker-sigfox-influxdb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sigfox callback to InfluxDB convertor",
   "main": "dist/index.js",
   "author": "Pavel Sláma <info@pavelslama.cz>",
