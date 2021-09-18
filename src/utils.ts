@@ -46,7 +46,7 @@ export const saveData = async (data: InputData): Promise<number> => {
     console.log('Saved');
     return 204;
   } catch (err) {
-    console.log(err.message);
+    console.log(err);
     return 406;
   }
 };

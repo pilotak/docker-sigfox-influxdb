@@ -70,7 +70,7 @@ const app = createServer((req: IncomingMessage, res: ServerResponse) => {
   } catch (err) {
     res.writeHead(400);
     res.end();
-    console.error(err.toString());
+    console.error(err);
   }
 });
 
